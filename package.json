@@ -1,0 +1,74 @@
+{
+	"name": "time-tracker",
+	"displayName": "Time Tracker",
+	"description": "",
+	"version": "0.1.0",
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:timeTracker.start",
+		"onCommand:timeTracker.setDescription",
+		"onCommand:timeTracker.stop",
+		"workspaceContains:**/.time.csv"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "timeTracker.start",
+				"title": "Time Tracker: Start Timer"
+			},
+			{
+				"command": "timeTracker.setDescription",
+				"title": "Time Tracker: Set Timer Description"
+			},
+			{
+				"command": "timeTracker.stop",
+				"title": "Time Tracker: Stop Timer"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Time Tracker",
+			"properties": {
+				"timetracker.inactivityTimeout": {
+					"type": "number",
+					"default": 10,
+					"description": "The timeout in minutes before pausing the timer."
+				},
+				"timetracker.minimumLogTime": {
+					"type": "number",
+					"default": 1,
+					"description": "The minimum amount of minutes to write to the log file."
+				},
+				"timetracker.logFilePath": {
+					"type": "string",
+					"default": ".time.csv",
+					"description": "The default path to the log file relative to the current workspace."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^11.11.0",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28"
+	},
+	"dependencies": {
+		"moment": "^2.24.0",
+		"node": "^11.11.0"
+	}
+}
