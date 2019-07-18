@@ -1,5 +1,7 @@
 {
 	"name": "time-tracker",
+	"publisher": "Thijsdh",
+	"repository": "https://github.com/Thijsdh/vscode-time-tracker",
 	"displayName": "Time Tracker",
 	"description": "",
 	"version": "0.1.0",
@@ -61,14 +63,14 @@
 		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"@types/mocha": "^2.2.42",
-		"@types/node": "^11.11.0",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.6.8",
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.1",
-		"vscode": "^1.1.28"
+		"vscode": "^1.1.35"
 	},
 	"dependencies": {
 		"moment": "^2.24.0",
-		"node": "^11.11.0"
+		"node": "^12.6.0"
 	}
 }
