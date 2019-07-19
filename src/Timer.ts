@@ -171,7 +171,7 @@ export default class Timer {
 			const filePath = FileUtils.trackingFilePath;
 			if (filePath === null) return;
 			try {
-				await fs.appendFile(filePath, line);
+				await fs.appendFile(filePath, line + '\n');
 			} catch (err) {
 				console.error(err);
 				return vscode.window.showErrorMessage(
