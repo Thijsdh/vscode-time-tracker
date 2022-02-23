@@ -42,7 +42,7 @@ export default class Timer {
 
 	public set description(value: string) {
 		const prevStatus = this._status;
-		new Promise((resolve, reject) => {
+		new Promise<void>((resolve, reject) => {
 			if (prevStatus !== TimerStatus.STOPPED) {
 				this.stop(true).then(() => {
 					resolve();
